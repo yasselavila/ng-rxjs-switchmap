@@ -8,3 +8,4 @@ tsconfig.app.json
 tsconfig.lib.json
 tsconfig.e2e.json
 tsconfig.spec.json
+polyfills.ts
