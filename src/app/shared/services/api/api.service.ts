@@ -14,8 +14,8 @@ const API_URL = 'https://api.github.com';
 
 @Injectable({ providedIn: 'root' })
 export class ApiService {
-  public loading$: Subject<boolean> = new Subject<boolean>();
-  public data$: Subject<User[]> = new Subject<User[]>();
+  public readonly loading$: Subject<boolean> = new Subject<boolean>();
+  public readonly data$: Subject<User[]> = new Subject<User[]>();
 
   public constructor(private httpClient: HttpClient) {}
 
@@ -37,6 +37,8 @@ export class ApiService {
         take(1)
       )
       .subscribe((data: User[]) => {
+        console.log(data);
+
         this.loading$.next(false);
         this.data$.next(data);
       });
