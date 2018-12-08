@@ -2,11 +2,11 @@
   <div class="container">
     <!-- .keep -->
     <h1>MassTech Exam</h1>
+
+    <div class="search-panel"><app-search-bar (change)="search($event)"></app-search-bar></div>
   </div>
 </header>
 <main role="main">
-  <div class="container"><app-search-bar (change)="search($event)"></app-search-bar></div>
-
   <div class="container"><app-users-list [users]="users$ | async"></app-users-list></div>
 </main>
 <footer>

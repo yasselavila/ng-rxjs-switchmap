@@ -1,23 +1,40 @@
 :host {
   header {
-    background: #0a0a0a;
-    color: #fff;
+    display: block;
+    min-height: 48px;
+    height: auto;
+    background: #272626;
+    color: #fafafa;
     padding: 10px 0;
 
-    h4 {
-      margin: 10px 0;
+    h1 {
+      margin: 6px 0;
       font-size: 22px;
+      float: left;
+    }
+
+    div.search-panel {
+      width: 260px;
+      float: right;
+
+      @media (max-width: 535px) {
+        float: none;
+        margin: 20px 0;
+        width: 100%;
+      }
     }
   }
 
   main {
     display: block;
     margin: 10px 0;
+    clear: both;
   }
 
   footer {
     padding: 20px 0;
     background: #fafafa;
+    clear: both;
 
     p {
       text-align: center;

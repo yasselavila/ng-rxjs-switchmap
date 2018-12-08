@@ -1,4 +1,6 @@
-<ng-template #nodata> There is no data to show. Please use the search bar. </ng-template>
+<ng-template #nodata>
+  <p class="nodata">There is no data to show. Please use the search bar.</p>
+</ng-template>
 
 <div *ngIf="users; else: nodata">
   <div *ngFor="let user of users; trackBy: trackUser">
