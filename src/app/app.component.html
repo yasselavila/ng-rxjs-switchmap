@@ -7,7 +7,10 @@
   </div>
 </header>
 <main role="main">
-  <div class="container"><app-users-list [users]="users$ | async"></app-users-list></div>
+  <div class="container">
+    <app-spinner *ngIf="(loading$ | async)"></app-spinner>
+    <app-users-list [users]="data$ | async"></app-users-list>
+  </div>
 </main>
 <footer>
   <div class="container"><p>&copy; 2018.</p></div>
