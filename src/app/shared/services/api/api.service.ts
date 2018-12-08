@@ -4,14 +4,13 @@ import { Subject } from 'rxjs';
 import { map, take } from 'rxjs/operators';
 import { User } from '../../models';
 
-const githubApiTokenData: string = '62d51da61cf128582048' + '587092e94454ae7a19f7';
-
-const githubApiToken: string = githubApiTokenData
+/* Avoid scrappers */
+const API_TOKEN: string = ('62d51da61cf128582048' + '587092e94454ae7a19f7')
   .split('')
   .reverse()
   .join('');
 
-const githubApiUrl = 'https://api.github.com';
+const API_URL = 'https://api.github.com';
 
 @Injectable({ providedIn: 'root' })
 export class ApiService {
@@ -24,12 +23,12 @@ export class ApiService {
     this.loading$.next(true);
 
     const headers: HttpHeaders = new HttpHeaders({
-      Authorization: `Bearer ${githubApiToken}`,
+      Authorization: `Bearer ${API_TOKEN}`,
       Accept: 'application/vnd.github.v3+json'
     });
 
     const q = encodeURIComponent(userQuery);
-    const url = `${githubApiUrl}/search/users?q=${q}`;
+    const url = `${API_URL}/search/users?q=${q}`;
 
     this.httpClient
       .get<User[]>(url, { headers })
@@ -38,8 +37,6 @@ export class ApiService {
         take(1)
       )
       .subscribe((data: User[]) => {
-        console.log(data);
-
         this.loading$.next(false);
         this.data$.next(data);
       });
