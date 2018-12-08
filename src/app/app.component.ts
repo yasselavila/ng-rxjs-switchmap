@@ -9,7 +9,8 @@ import { ApiService } from './shared/services';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  public users$: Observable<User[]> = this.apiService.stream$;
+  public loading$: Observable<boolean> = this.apiService.loading$;
+  public data$: Observable<User[]> = this.apiService.data$;
 
   public constructor(private apiService: ApiService) {}
 

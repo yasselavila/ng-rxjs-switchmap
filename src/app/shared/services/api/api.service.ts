@@ -8,11 +8,14 @@ const BASE_URL = 'https://api.github.com/search/users';
 
 @Injectable({ providedIn: 'root' })
 export class ApiService {
-  public stream$: Subject<User[]> = new Subject<User[]>();
+  public loading$: Subject<boolean> = new Subject<boolean>();
+  public data$: Subject<User[]> = new Subject<User[]>();
 
   public constructor(private httpClient: HttpClient) {}
 
   public find(userQuery: string): void {
+    this.loading$.next(true);
+
     const q = encodeURIComponent(userQuery);
     const url = `${BASE_URL}?q=${q}`;
 
@@ -20,7 +23,8 @@ export class ApiService {
       .get<User[]>(url)
       .pipe(map((data: any) => data.items))
       .subscribe((data: User[]) => {
-        this.stream$.next(data);
+        this.loading$.next(false);
+        this.data$.next(data);
       });
   }
 }
