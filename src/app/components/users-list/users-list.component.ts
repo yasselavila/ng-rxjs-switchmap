@@ -9,4 +9,8 @@ import { User } from '../../shared/models';
 export class UsersListComponent {
   @Input()
   public users: User[];
+
+  public trackUser(index: number, user: User): any {
+    return user.login;
+  }
 }
