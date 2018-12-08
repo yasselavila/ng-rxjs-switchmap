@@ -1,0 +1,4 @@
+*
+typings/
+!.gitignore
+!settings.json
