@@ -1,4 +1,7 @@
 <h4 [innerText]="user.name"></h4>
-<abbr title="# of users followed" [innerText]="user.usersFollowed"></abbr>
-<abbr title="# of users following" [innerText]="user.usersFollowing"></abbr>
-<abbr title="# of repos" [innerText]="user.repositoriesCount"></abbr>
+<img [src]="user.avatar" />
+<div>
+  <abbr title="# of users followed" [innerText]="user.usersFollowed"></abbr>
+  <abbr title="# of users following" [innerText]="user.usersFollowing"></abbr>
+  <abbr title="# of repos" [innerText]="user.repositoriesCount"></abbr>
+</div>
