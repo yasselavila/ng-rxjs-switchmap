@@ -3,7 +3,7 @@ export interface User {
   html_url: string;
   name?: string;
   login: string;
-  usersFollowed: number;
-  usersFollowing: number;
-  repositoriesCount: number;
+  followers?: number;
+  following?: number;
+  public_repos?: number;
 }

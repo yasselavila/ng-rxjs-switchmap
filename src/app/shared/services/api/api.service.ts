@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
-import { map, take } from 'rxjs/operators';
+import { forkJoin, Subject } from 'rxjs';
+import { map, switchMap, take } from 'rxjs/operators';
 import { User } from '../../models';
 
 /* Avoid scrappers */
@@ -34,11 +34,12 @@ export class ApiService {
       .get<User[]>(url, { headers })
       .pipe(
         map((data: any) => data.items),
+        switchMap((users: User[]) =>
+          forkJoin(users.map((user: User | any) => this.httpClient.get<any>(user.url, { headers })))
+        ),
         take(1)
       )
       .subscribe((data: User[]) => {
-        console.log(data);
-
         this.loading$.next(false);
         this.data$.next(data);
       });
