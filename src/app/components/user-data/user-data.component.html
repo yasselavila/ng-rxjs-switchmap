@@ -1,6 +1,6 @@
-<h4><a target="_blank" [href]="user.html_url" [innerText]="user.name || user.login"></a></h4>
 <img [src]="user.avatar_url" />
 <div>
+  <h4><a target="_blank" [href]="user.html_url" [innerText]="user.name || user.login"></a></h4>
   <abbr title="# of users followed" [innerText]="user.usersFollowed || 0"></abbr>
   <abbr title="# of users following" [innerText]="user.usersFollowing || 0"></abbr>
   <abbr title="# of repos" [innerText]="user.repositoriesCount || 0"></abbr>

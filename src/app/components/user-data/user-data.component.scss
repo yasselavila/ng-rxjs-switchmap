@@ -1,6 +1,7 @@
 :host {
   display: block;
   clear: both;
+  margin: 0 0 20px 0;
 
   img {
     display: block;
@@ -14,7 +15,14 @@
     float: left;
   }
 
+  h4 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    line-height: 20px;
+  }
+
   abbr {
     display: block;
+    text-decoration: none;
   }
 }
