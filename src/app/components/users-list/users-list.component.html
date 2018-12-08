@@ -2,8 +2,25 @@
   <p class="nodata">There is no data to show. Please use the search bar.</p>
 </ng-template>
 
-<div *ngIf="users; else: nodata">
-  <div *ngFor="let user of users; trackBy: trackUser">
+<div *ngIf="_data" class="filters">
+  <span>
+    Filters <span *ngIf="_filterApplied != 1">(<a (click)="clearFilters()">Clear</a>)</span>:
+  </span>
+  <a (click)="filterByLessThan10Followers()" [class.bold]="_filterApplied == 2">
+    Less than 10 followers
+  </a>
+  |
+  <a (click)="filterByBetween10And100Followers()" [class.bold]="_filterApplied == 3">
+    Followers between 10 and 100
+  </a>
+  |
+  <a (click)="filterByMoreThan100Followers()" [class.bold]="_filterApplied == 4">
+    More than 100 followers
+  </a>
+</div>
+
+<div *ngIf="_users; else: nodata">
+  <div *ngFor="let user of _users; trackBy: trackUser">
     <!-- Users list -->
     <app-user-data [user]="user"></app-user-data>
   </div>

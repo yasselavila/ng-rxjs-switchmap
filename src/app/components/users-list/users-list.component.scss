@@ -5,4 +5,23 @@
   p.nodata {
     margin: 20px 0;
   }
+
+  .filters {
+    padding: 8px 12px;
+    background-color: #fafafa;
+
+    > span {
+      font-weight: bold;
+    }
+
+    a {
+      text-decoration: none;
+      color: #007bff;
+      cursor: default;
+
+      &.bold {
+        font-weight: bold;
+      }
+    }
+  }
 }
