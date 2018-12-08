@@ -1,0 +1,20 @@
+:host {
+  display: block;
+  clear: both;
+
+  img {
+    display: block;
+    width: 100px;
+    float: left;
+    margin: 0 20px 20px 0;
+  }
+
+  > div {
+    width: auto;
+    float: left;
+  }
+
+  abbr {
+    display: block;
+  }
+}

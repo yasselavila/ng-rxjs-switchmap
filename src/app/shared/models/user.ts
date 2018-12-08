@@ -1,6 +1,8 @@
 export interface User {
-  avatar: string;
-  name: string;
+  avatar_url: string;
+  html_url: string;
+  name?: string;
+  login: string;
   usersFollowed: number;
   usersFollowing: number;
   repositoriesCount: number;

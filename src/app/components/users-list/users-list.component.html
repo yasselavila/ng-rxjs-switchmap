@@ -1,1 +1,8 @@
-<div *ngFor="let user of users"><app-user-data [user]="user"></app-user-data></div>
+<ng-template #nodata> There is no data to show. Please use the search bar. </ng-template>
+
+<div *ngIf="users; else: nodata">
+  <div *ngFor="let user of users">
+    <!-- Users list -->
+    <app-user-data [user]="user"></app-user-data>
+  </div>
+</div>

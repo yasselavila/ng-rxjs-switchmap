@@ -1,0 +1,26 @@
+:host {
+  header {
+    background: #0a0a0a;
+    color: #fff;
+    padding: 10px 0;
+
+    h4 {
+      margin: 10px 0;
+      font-size: 22px;
+    }
+  }
+
+  main {
+    display: block;
+    margin: 10px 0;
+  }
+
+  footer {
+    padding: 20px 0;
+    background: #fafafa;
+
+    p {
+      text-align: center;
+    }
+  }
+}

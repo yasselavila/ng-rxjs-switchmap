@@ -5,11 +5,10 @@
   </div>
 </header>
 <main role="main">
-  <div class="container">
-    <!-- Router ctr -->
-      <router-outlet></router-outlet>
-  </div>
+  <div class="container"><app-search-bar (change)="search($event)"></app-search-bar></div>
+
+  <div class="container"><app-users-list [users]="users$ | async"></app-users-list></div>
 </main>
 <footer>
-  &copy; 2018.
+  <div class="container"><p>&copy; 2018.</p></div>
 </footer>
